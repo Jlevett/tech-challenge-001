@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 
 class NameInput extends Component {
 
@@ -11,6 +12,7 @@ class NameInput extends Component {
 	nameHandler = (name, nameInputElement) => {
 		this.setState({name: name})
 	    this.props.nameUpdate("name", name);
+		//Only enforce rules if the input is required.
 	    if (this.props.name.required) {
 			let isTwoSeperateWordsOnlyLetters = /^[A-z]+ [A-z]+$/.test(name); //regExTest for input.
 		    nameInputElement.setCustomValidity(isTwoSeperateWordsOnlyLetters ? "" : "Enter both first and last name only");
@@ -35,3 +37,8 @@ class NameInput extends Component {
 }
 
 export default NameInput;
+
+NameInput.propTypes = {
+        name: PropTypes.object,
+        nameUpdate: PropTypes.func
+  }

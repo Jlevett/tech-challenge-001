@@ -1,15 +1,15 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 
 class GenderInput extends Component {
 
-	// Handle date input, update current state and parent state
+	// Handle gender input, update current state and parent state
 	radioButtonChanged = (gender) => {
 	   this.setState({gender: gender})
 	   this.props.genderUpdate("gender", gender);
 	}
 
 	render() {
-		console.log(this.props.gender)
 		return (
 			<div >
 		    	<label>{this.props.gender.label}</label><br/>
@@ -27,12 +27,15 @@ class GenderInput extends Component {
 		    				/>
 		    			</div>
 		    	)})}
-
-
 		    </div>
-			)
+		)
 	}
 
  }
 
- export default GenderInput;
+export default GenderInput;
+
+GenderInput.propTypes = {
+        gender: PropTypes.object,
+        genderUpdate: PropTypes.func
+  }

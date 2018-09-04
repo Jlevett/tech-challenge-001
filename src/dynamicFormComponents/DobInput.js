@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 
-class DateInput extends Component {
+class DobInput extends Component {
 
 	state = {
 		dob: ""
@@ -11,6 +12,7 @@ class DateInput extends Component {
 	dateHandler = (dob, dateInputElement) => {
 	    this.setState({dob: dob})
 	    this.props.dobUpdate("dob", dob);
+	    //Only enforce rules if the input is required.
   		if (this.props.dob.required) {
 		    if (!this.isDateinFuture(dob)) {
 		      dateInputElement.setCustomValidity("Your birthday has to be in the past.");
@@ -55,4 +57,10 @@ class DateInput extends Component {
 
  }
 
- export default DateInput;
+ export default DobInput;
+
+
+DobInput.propTypes = {
+        dob: PropTypes.object,
+        dobUpdate: PropTypes.func
+  }

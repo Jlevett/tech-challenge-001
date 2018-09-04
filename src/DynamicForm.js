@@ -1,27 +1,35 @@
 import React, { Component } from "react";
-import DateInput from "./dynamicFormComponents/DateInput.js"
+import PropTypes from 'prop-types';
+
+import DobInput from "./dynamicFormComponents/DobInput.js"
 import NameInput from "./dynamicFormComponents/NameInput.js"
 import GenderInput from "./dynamicFormComponents/GenderInput.js";
 import ContactInput from "./dynamicFormComponents/ContactInput.js";
+import GuardianInput from "./dynamicFormComponents/GuardianInput.js";
+
 class DynamicForm extends Component {
 
-  state = {
-  }
-
    componentWillMount(){
-     this.addInputStates();
+     this.addIntialInputStates();
 
    }
-   //Add input states
-   addInputStates = () => {
-     if(this.props.formDef.dob)
-      this.setState({dob:''});
-     if(this.props.formDef.name)
-      this.setState({name:''});
-     if(this.props.formDef.gender)
-      this.setState({gender:''});
-    if(this.props.formDef.contact)
-      this.setState({contact: ["",""]});//FIX
+   //Add input states from forms
+   addIntialInputStates = () => {
+    if(this.props.formDef.dob)
+        this.setState({dob:''});
+    if(this.props.formDef.name)
+        this.setState({name:''});
+    if(this.props.formDef.gender)
+        this.setState({gender:''});
+    if(this.props.formDef.contact){
+        let contactArray = [];
+        this.props.formDef.contact.types.forEach(function(type){
+            let tempObj = {type:type, value: ''}
+            contactArray.push(tempObj);
+        });
+        this.setState({contact:contactArray})
+
+      }
    }
 
   handleSubmit = (event) => {
@@ -46,13 +54,16 @@ class DynamicForm extends Component {
           <NameInput name={this.props.formDef.name} nameUpdate={this.update}/>
         }
         {this.props.formDef.dob &&
-          <DateInput dob={this.props.formDef.dob} dobUpdate={this.update}/>
+          <DobInput dob={this.props.formDef.dob} dobUpdate={this.update}/>
         }
         {this.props.formDef.gender &&
           <GenderInput gender={this.props.formDef.gender} genderUpdate={this.update}/>
         }
         {this.props.formDef.contact &&
-          <ContactInput contact={this.props.formDef.contact} contactUpdate={this.contact}/>
+          <ContactInput contact={this.props.formDef.contact} contactUpdate={this.update}/>
+        }
+        {this.props.formDef.guardian &&
+          <GuardianInput guardian={this.props.formDef.guardian} guardianUpdate={this.update}/>
         }
       {/*SUBMIT BUTTON*/}
         <input type="submit"  value="Submit"/>
@@ -63,23 +74,18 @@ class DynamicForm extends Component {
 
 export default DynamicForm;
 
+DynamicForm.propTypes = {
+        formDef: PropTypes.object,
+        onSuccessfulSubmit: PropTypes.func
+  }
 
- //
 
 
-   //
-
-   //
-
-   //      {/*
-   //      require guardian consent
-   //        checkbox
-   //        optional
-   //      */}
-
-   //      {/*
-   //      guardian details (name, contact)
-   //          text based
-   //          required/applicable if consent checkbox is ticked
-   //      */}
-
+/*
+require guardian consent
+    checkbox
+    optional
+guardian details (name, contact)
+    text based
+    required/applicable if consent checkbox is ticked
+  */
