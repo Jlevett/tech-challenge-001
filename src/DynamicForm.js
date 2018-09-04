@@ -7,14 +7,18 @@ import GenderInput from "./dynamicFormComponents/GenderInput.js";
 import ContactInput from "./dynamicFormComponents/ContactInput.js";
 import GuardianInput from "./dynamicFormComponents/GuardianInput.js";
 
+//A Dynamic Form that takes a JSON-based form definition (via a prop) and produces data specific to that form once submitted.
 class DynamicForm extends Component {
 
-   componentWillMount(){
-     this.addIntialInputStates();
+  componentWillMount(){
+    this.addIntialInputStates();
 
-   }
-   //Add input states from forms
-   addIntialInputStates = () => {
+  }
+
+  //Add the intial inputStates of the specifc fields that will be present in this particular dynamic form.
+  //The state is the 'data' that will be returned on sucessful submission,
+  //so we are setting up an object with the relevant keys and blank values ie ''.
+  addIntialInputStates = () => {
     if(this.props.formDef.dob)
         this.setState({dob:''});
     if(this.props.formDef.name)
@@ -28,16 +32,18 @@ class DynamicForm extends Component {
             contactArray.push(tempObj);
         });
         this.setState({contact:contactArray})
-
       }
-   }
+    if(this.props.formDef.guardian)
+      this.setState({guardian: {name: '', contact: ''}})
+  }
 
+  //On a successful submission the object state is returned which contains the resulting form data
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.onSuccessfulSubmit(this.state);
   }
 
-  //Allows the child elements to update the state of inputs
+  //Allows the child elements of this component to update the parent with the current state of their inputs
   update =(key, value) => {
     let tempObj = {};
     tempObj[key] = value;
@@ -65,7 +71,6 @@ class DynamicForm extends Component {
         {this.props.formDef.guardian &&
           <GuardianInput guardian={this.props.formDef.guardian} guardianUpdate={this.update}/>
         }
-      {/*SUBMIT BUTTON*/}
         <input type="submit"  value="Submit"/>
       </form>
     );
@@ -79,13 +84,3 @@ DynamicForm.propTypes = {
         onSuccessfulSubmit: PropTypes.func
   }
 
-
-
-/*
-require guardian consent
-    checkbox
-    optional
-guardian details (name, contact)
-    text based
-    required/applicable if consent checkbox is ticked
-  */

@@ -19,10 +19,11 @@ class ContactInput extends Component {
 		this.setState({contact: contactArray})
 	}
 
-	// Handle contact input, update current state and parent state, customValidity logic
+	//Handle contact input, update current state and parent state, customValidity logic
+	//(Has to be a valid phone number)
 	contactUpdate = (valueEntered, contactInputElement, index) => {
 		const validNumberRegEx = /(?:\+?(61))? ?(?:\((?=.*\)))?(0?[2-57-8])\)? ?(\d\d(?:[- ](?=\d{3})|(?!\d\d[- ]?\d[- ]))\d\d[- ]?\d[- ]?\d{3})$/
-		let isValidNumber = validNumberRegEx.test(valueEntered);//Regexe Test
+		let isValidNumber = validNumberRegEx.test(valueEntered);//Regex Test for valid phone number
 
 		this.setState((prevState) => {
 				prevState.contact[index].value = valueEntered;

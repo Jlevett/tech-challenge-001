@@ -1,0 +1,18 @@
+{
+  "title": "Happy Form",
+  "name": {
+  	"label": "Full name: ",
+ 	  "placeholder": "Joe Brown",
+    "required": true
+ 	},
+  "contact": {
+  	"label":"Contact Information: ",
+  	"types": ["Home", "Mobile"],
+  	"placeholder": ["02 9428 3321", "0411 111 111"],
+    "required": true
+  },
+  "guardian": {
+  	"label": "Require Guardian Consent: ",
+  	"required": true
+  }
+}

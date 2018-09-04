@@ -59,7 +59,6 @@ class DobInput extends Component {
 
  export default DobInput;
 
-
 DobInput.propTypes = {
         dob: PropTypes.object,
         dobUpdate: PropTypes.func

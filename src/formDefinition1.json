@@ -1,28 +1,28 @@
 {
   "title": "Sign Up Form",
   "name": {
-  	"label":"Full name: ",
- 	"required": true,
- 	"placeholder": "Joe Brown"
+  	"label": "Full name: ",
+ 	  "placeholder": "Joe Brown",
+    "required": true
  	},
   "dob": {
   	"label":"Date of Birth: ",
-  	"required": true,
-	"minimumAge": 18
+	  "minimumAge": 18,
+    "required": true
 	},
   "gender": {
   	"label":"Gender: ",
-   	"options":["Male","Female"],
-    "required":true
+   	"options": ["Male","Female"],
+    "required": false
 	},
   "contact": {
   	"label":"Contact Information: ",
   	"types": ["Home", "Mobile", "Fax"],
-  	"required": true,
-  	"placeholder":["02 9428 3321", "0411 111 111","02 9057 3333"]
+  	"placeholder": ["02 9428 3321", "0411 111 111","02 9057 3333"],
+    "required": false
   	},
   "guardian": {
   	"label": "Require Guardian Consent: ",
-  	"required": true
+  	"required": false
   }
 }
