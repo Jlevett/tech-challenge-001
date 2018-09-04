@@ -12,8 +12,8 @@
 	},
   "gender": {
   	"label":"Gender: ",
-   	"options":["male","female"],
-    "required":false
+   	"options":["Male","Female"],
+    "required":true
 	},
   "tel": {
   	"label": "Contact number: ",

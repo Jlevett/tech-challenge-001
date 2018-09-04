@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import DynamicForm from "./DynamicForm.js"
 //Form definition that is passed to Dynamic From as a prop
 import formDefinition  from "./formDefinition.json";
