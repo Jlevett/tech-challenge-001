@@ -9,17 +9,18 @@ import formDefinition  from "./formDefinition.json";
 
 class App extends Component {
 
-  render() {
+  onSuccessfulSubmit = (output) => {
+    console.log(output)
+    alert(JSON.stringify(output));
+  }
 
-    // console.log(formDefinition)
-    // console.log(JSON.parse(formDefinition));
+  render() {
     return (
       <div className="App">
-        <DynamicForm formDef={formDefinition}/>
+        <DynamicForm formDef={formDefinition} onSuccessfulSubmit ={this.onSuccessfulSubmit} />
       </div>
     );
   }
 }
 
 export default App;
- //
