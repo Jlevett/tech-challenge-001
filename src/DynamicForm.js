@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import DateInput from "./dynamicFormComponents/DateInput.js"
 import NameInput from "./dynamicFormComponents/NameInput.js"
 import GenderInput from "./dynamicFormComponents/GenderInput.js";
-
+import ContactInput from "./dynamicFormComponents/ContactInput.js";
 class DynamicForm extends Component {
 
   state = {
@@ -19,7 +19,9 @@ class DynamicForm extends Component {
      if(this.props.formDef.name)
       this.setState({name:''});
      if(this.props.formDef.gender)
-      this.setState({gender:''});//FIX
+      this.setState({gender:''});
+    if(this.props.formDef.contact)
+      this.setState({contact: ["",""]});//FIX
    }
 
   handleSubmit = (event) => {
@@ -49,7 +51,9 @@ class DynamicForm extends Component {
         {this.props.formDef.gender &&
           <GenderInput gender={this.props.formDef.gender} genderUpdate={this.update}/>
         }
-
+        {this.props.formDef.contact &&
+          <ContactInput contact={this.props.formDef.contact} contactUpdate={this.contact}/>
+        }
       {/*SUBMIT BUTTON*/}
         <input type="submit"  value="Submit"/>
       </form>
@@ -65,8 +69,7 @@ export default DynamicForm;
 
    //
 
-   //      <label htmlFor="phonenum">Phone Number:</label><br/>
-   //      <input id="phonenum" type="tel" pattern="^\d{4}-\d{3}-\d{4}$"/>
+   //
 
    //      {/*
    //      require guardian consent

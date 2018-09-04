@@ -15,7 +15,7 @@
    	"options":["Male","Female"],
     "required":true
 	},
-  "tel": {
+  "contact": {
   	"label": "Contact number: ",
   	"required": false,
   	"placeholder":"0411 111 111"

@@ -20,7 +20,7 @@ class NameInput extends Component {
 	render(){
 		return(
 	    	<div>
-	            <label htmlFor="name">{this.props.name.label}</label>
+	            <label htmlFor="name">{this.props.name.label}</label><br/>
 	            <input
 	              id="name"
 	              type="text"

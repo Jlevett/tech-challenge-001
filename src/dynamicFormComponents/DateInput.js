@@ -40,7 +40,7 @@ class DateInput extends Component {
 	render() {
 		return (
 		    <div>
-		      <label htmlFor="dob">{this.props.dob.label}</label>
+		      	<label htmlFor="dob">{this.props.dob.label}</label><br/>
 		        <input
 		          id="dob"
 		          type="date"

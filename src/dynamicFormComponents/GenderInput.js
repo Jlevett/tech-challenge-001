@@ -9,9 +9,10 @@ class GenderInput extends Component {
 	}
 
 	render() {
+		console.log(this.props.gender)
 		return (
 			<div >
-		    	<label>{this.props.gender.label}</label>
+		    	<label>{this.props.gender.label}</label><br/>
 		    	{this.props.gender.options.map(option => {
 		    		return(
 		    			<div key={option} style={{display : 'inline-block'}}>
