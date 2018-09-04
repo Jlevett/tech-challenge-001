@@ -26,6 +26,10 @@ For the purpose of verification and validation, there are three form components 
 3. serve -s build
 4. Open  http://localhost:5000
 
+## NOTE
+
+If '"required": false' is used in the JSON-based form definition it automatically removes customValidity rules for the refering specific input as that input was already optional to answer for the user, except in the case of ticking the guardian consent checkbox as that is a user driven action (so its customValidity rules still apply). 
+
 ## CHALLENGE NOTES
 
 Purpose:
