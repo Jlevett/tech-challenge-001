@@ -22,9 +22,11 @@ class GuardianInput extends Component {
 
  	//If the checkBox has been clicked, then follow actions
 	onConsentClicked = () =>{
-		//If the checked box is unselected, delete all information in parent, as guardian data is not sent back.
-		if(this.state.checked){
+		//If the checked box is going to be unselected(unchecked), delete all information in parent, as guardian data is not sent back on submit.
+		if(this.state.checked && !this.props.guardian.required){
 		 	this.props.guardianUpdate("guardian", {name: "", contact: ""});
+		} else if(!this.state.checked){//box unchecked going checked
+		 	this.props.guardianUpdate("guardian", {name: this.state.guardian.name, contact: this.state.guardian.contact});
 		}
 		//Change the checkbox, unless it is required as per JSON-form defintion, then it is essentially "readonly"
 		if(!this.props.guardian.required) {

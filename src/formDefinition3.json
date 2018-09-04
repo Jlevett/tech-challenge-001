@@ -1,28 +1,28 @@
 {
-  "title": "Registration Form",
-  "name": {
-  	"label": "Full name: ",
- 	  "placeholder": "Joe Brown",
-    "required": true
- 	},
-  "dob": {
-  	"label":"Date of Birth: ",
-	  "minimumAge": 21,
-    "required": true
+	"title": "Registration Form",
+	"name": {
+		"label": "Full name: ",
+		"placeholder": "Joe Brown",
+		"required": true
 	},
-  "gender": {
-  	"label":"Gender: ",
-   	"options": ["Male","Female","Other"],
-    "required": true
+	"dob": {
+		"label":"Date of Birth: ",
+		"minimumAge": 21,
+		"required": true
 	},
-  "contact": {
-  	"label":"Contact Information: ",
-  	"types": ["Home", "Mobile", "Fax","Work"],
-  	"placeholder": ["02 9428 3321", "0411 111 111","02 9057 3333","02 9057 3333"],
-    "required": true
-  	},
-  "guardian": {
-  	"label": "Require Guardian Consent: ",
-  	"required": true
-  }
+	"gender": {
+		"label":"Gender: ",
+		"options": ["Male","Female","Other"],
+		"required": true
+	},
+	"contact": {
+		"label":"Contact Information: ",
+		"types": ["Home", "Mobile", "Fax","Work"],
+		"placeholder": ["02 9428 3321", "0411 111 111","02 9057 3333","02 9057 3333"],
+		"required": true
+	},
+	"guardian": {
+		"label": "Require Guardian Consent: ",
+		"required": true
+	}
 }
