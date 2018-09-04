@@ -1,0 +1,7 @@
+{
+  "title": "Sign Up Form",
+  "name": {"label":"Full name:","type": "text","words":"2","required": "true", "placeholder":"Joe Brown"},
+  "dob": {"label":"Date of Birth","type": "date", "required": "true", "minimumAge":"18"},
+  "gender": {"label":"Gender:", "options":["male","female"], "required":"false"},
+  "tel": {"label": "Contact number:", "type":"text", "required":"false", "placeholder":"0411 522 354"}
+}

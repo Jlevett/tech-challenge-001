@@ -1,21 +1,25 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+//Customized component
+import DynamicForm from "./DynamicForm.js"
+//form definition that is passed to Dynamic From as a prop
+import formDefinition  from "./formDefinition.json";
+
+
 
 class App extends Component {
+
   render() {
+
+    // console.log(formDefinition)
+    // console.log(JSON.parse(formDefinition));
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <DynamicForm formDef={formDefinition}/>
       </div>
     );
   }
 }
 
 export default App;
+ //
